@@ -8,7 +8,7 @@ RUN go build -o server ./cmd/server/main.go
 
 
 # run
-FROM alpine
+FROM alpine:latest
 
 WORKDIR /
 COPY --from=build /server /server
