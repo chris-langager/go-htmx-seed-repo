@@ -16,13 +16,3 @@ func NewService(db *sql.DB) *Service {
 		db: sqlx.NewDb(db, "postgres"),
 	}
 }
-
-// temp
-
-var users = []User{
-	{
-		Id:             "123",
-		Email:          "test@fake.com",
-		HashedPassword: mustHashPassword("test"),
-	},
-}

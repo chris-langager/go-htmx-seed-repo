@@ -10,14 +10,6 @@ func hashPassword(password string) (string, error) {
 	return string(hash), nil
 }
 
-func mustHashPassword(password string) string {
-	hashedPassword, err := hashPassword(password)
-	if err != nil {
-		panic(err)
-	}
-	return hashedPassword
-}
-
 func passwordsMatch(hashedPassword string, password string) bool {
 	err := bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(password))
 	return err == nil

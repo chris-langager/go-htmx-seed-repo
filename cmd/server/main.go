@@ -18,6 +18,8 @@ func main() {
 		postgresUrl = os.ExpandEnv("DATABASE_PRIVATE_URL")
 	}
 
+	fmt.Printf("postgresUrl='%s'\n", postgresUrl)
+
 	dbConnection, err := sql.Open("postgres", postgresUrl)
 	if err != nil {
 		panic(err)

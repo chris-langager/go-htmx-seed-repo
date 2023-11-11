@@ -12,19 +12,6 @@ type CreateUserInput struct {
 	Password string
 }
 
-type userRow struct {
-	Id             string `db:"id"`
-	Email          string `db:"email"`
-	HashedPassword string `db:"hashed_password"`
-}
-
-func (o *userRow) toUser() *User {
-	return &User{
-		Id:             o.Id,
-		Email:          o.Email,
-		HashedPassword: o.HashedPassword,
-	}
-}
 func (o *Service) CreateUser(ctx context.Context, input CreateUserInput) (*User, error) {
 	// TODO - validate, come up with validation error type
 
