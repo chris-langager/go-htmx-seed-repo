@@ -14,8 +14,8 @@ import (
 func main() {
 
 	postgresUrl := "postgres://postgres:passw0rd@localhost:5432/postgres?sslmode=disable"
-	if os.Getenv("DATABASE_PRIVATE_URL") != "" {
-		postgresUrl = os.Getenv("DATABASE_PRIVATE_URL")
+	if os.Getenv("DATABASE_URL") != "" {
+		postgresUrl = os.Getenv("DATABASE_URL")
 	}
 
 	fmt.Printf("postgresUrl='%s'\n", postgresUrl)
