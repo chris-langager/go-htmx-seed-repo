@@ -1,25 +1,38 @@
 package user
 
-import "context"
+import (
+	"context"
+	"fmt"
+)
 
 func (o *Service) GetUser(ctx context.Context, id string) (*User, error) {
-	for _, user := range users {
-		if user.Id == id {
-			return &user, nil
-		}
+	sql := `SELECT * FROM users WHERE id = $1`
+	userRows := []userRow{}
+	err := o.db.SelectContext(ctx, &userRows, sql, id)
+	if err != nil {
+		return nil, fmt.Errorf("error looking up user by id: %w", err)
 	}
 
-	return nil, nil
+	if len(userRows) == 0 {
+		return nil, nil
+	}
+
+	return userRows[0].toUser(), nil
 }
 
 func (o *Service) GetUserByEmail(ctx context.Context, email string) (*User, error) {
-	for _, user := range users {
-		if user.Email == email {
-			return &user, nil
-		}
+	sql := `SELECT * FROM users WHERE email = $1`
+	userRows := []userRow{}
+	err := o.db.SelectContext(ctx, &userRows, sql, email)
+	if err != nil {
+		return nil, fmt.Errorf("error looking up user by email: %w", err)
 	}
 
-	return nil, nil
+	if len(userRows) == 0 {
+		return nil, nil
+	}
+
+	return userRows[0].toUser(), nil
 }
 
 func (o *Service) GetUserByLoginInfo(ctx context.Context, email string, password string) (*User, error) {
