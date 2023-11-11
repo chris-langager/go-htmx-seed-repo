@@ -1,0 +1,86 @@
+@font-face {
+  font-family: "Geist";
+  src: url("/static/Geist-Regular.woff2") format("woff2");
+}
+
+body {
+  font-family: Geist, Arial;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+nav a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+nav .logo {
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
+
+nav .login-nav {
+  line-height: 2rem;
+}
+
+.user-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-form .field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Login form */
+.user-form input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem;
+  margin: 4px 0;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+}
+
+.user-form button {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: white;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+}
+
+.user-form .error {
+  color: red;
+}
+
+/* Add a background color to the submit button on mouse-over */
+.user-form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/*
+Utility Classes
+*/
+.invisible {
+  visibility: hidden;
+}

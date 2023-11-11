@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Seed Repo | {{ .Title }}</title>
+    <link href="/static/reset.css" rel="stylesheet" />
+    <link href="/static/app.css" rel="stylesheet" />
+    <!-- <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css"
+      rel="stylesheet"
+    /> -->
+  </head>
+  <body>
+    <!-- header -->
+    <div class="app">
+      <nav>
+        <a class="logo" href="/" class="flex items-center">
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+            >Go + HTMX Seed Repo</span
+          >
+        </a>
+        <div class="login-nav">
+          {{ if not .User }}
+          <a href="/login">Login</a> // <a href="/register">Register</a>
+          {{ else }}
+          <div>{{ .User.Email }} // <a href="/logout">Logout</a></div>
+          {{ end }}
+        </div>
+      </nav>
+
+      <!-- content -->
+      <div>{{ template "content" . }}</div>
+    </div>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script> -->
+  </body>
+</html>

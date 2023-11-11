@@ -4,5 +4,10 @@ import "embed"
 
 var (
 	//go:embed *.html
-	files embed.FS
+	templateFiles embed.FS
+)
+
+var (
+	//go:embed  static/*
+	staticFiles embed.FS
 )
