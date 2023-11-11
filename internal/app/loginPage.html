@@ -1,25 +1,27 @@
 {{ define "content" }}
 
-<h2>Login</h2>
-<form class="user-form" method="post" action="/login">
-  <div class="field">
-    <label for="email">Email address</label>
-    <input type="email" name="email" required />
-    <div>
-      <span class="invisible">-</span>
-      <span class="error">{{ .Errors.Email }}</span>
+<div class="login-content">
+  <h2>Login</h2>
+  <form class="user-form" method="post" action="/login">
+    <div class="field">
+      <label for="email">Email address</label>
+      <input type="email" name="email" required />
+      <div>
+        <span class="invisible">-</span>
+        <span class="error">{{ .Errors.Email }}</span>
+      </div>
     </div>
-  </div>
-  <div class="field">
-    <label for="password">Password</label>
-    <input type="password" name="password" required />
-    <div>
-      <span class="invisible">-</span
-      ><span class="error">{{ .Errors.Password }}</span>
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="password" name="password" required />
+      <div>
+        <span class="invisible">-</span
+        ><span class="error">{{ .Errors.Password }}</span>
+      </div>
     </div>
-  </div>
 
-  <button type="submit">Submit</button>
-</form>
+    <button type="submit">Submit</button>
+  </form>
+</div>
 
 {{ end }}

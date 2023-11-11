@@ -10,6 +10,13 @@ body {
   font-family: Geist, Arial;
 }
 
+h2 {
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
 .app {
   max-width: 800px;
   margin: 0 auto;
@@ -37,9 +44,13 @@ nav .login-nav {
   line-height: 2rem;
 }
 
-.user-form {
-  max-width: 500px;
+.login-content,
+.register-content {
   margin: 0 auto;
+  max-width: 500px;
+}
+
+.user-form {
   display: flex;
   flex-direction: column;
   align-items: center;
