@@ -1,0 +1,62 @@
+{{ define "todo" }}
+
+<div class="todo">
+  <div class="top-row">
+    <div class="date-created">{{ .DateCreated.Format "2006-01-02" }}</div>
+  </div>
+  <div class="text-row">
+    <input type="checkbox" />
+    <div>{{ .Text }}</div>
+  </div>
+</div>
+
+<style>
+  .todo {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    border: 1px solid gray;
+    border-radius: 4px;
+
+    padding: 0.2rem;
+  }
+
+  .todo .top-row {
+    position: relative;
+    /* display: flex;
+    justify-content: end; */
+
+    width: 100%;
+  }
+
+  .todo .date-created {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: gray;
+  }
+
+  .todo .text-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 01rem 0.5rem;
+
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+  }
+
+  .todo input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 1rem;
+  }
+</style>
+
+{{ end }}

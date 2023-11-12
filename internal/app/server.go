@@ -4,6 +4,7 @@ import (
 	"html/template"
 	"net/http"
 
+	"github.com/chris-langager/go-htmx-seed-repo/internal/todo"
 	"github.com/chris-langager/go-htmx-seed-repo/internal/user"
 	"github.com/go-chi/chi/v5"
 )
@@ -11,6 +12,7 @@ import (
 type Server struct {
 	router      *chi.Mux
 	userService *user.Service
+	todoService *todo.Service
 }
 
 // implement http.Gander interface
@@ -23,10 +25,11 @@ Factor function for our server.
 
 It's here that we can handle DI and our routing logic
 */
-func NewServer(userService *user.Service) *Server {
+func NewServer(userService *user.Service, todoService *todo.Service) *Server {
 	o := &Server{
 		router:      chi.NewRouter(),
 		userService: userService,
+		todoService: todoService,
 	}
 
 	// put userId on context if a user is logged in

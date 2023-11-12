@@ -8,17 +8,17 @@ import (
 
 	"github.com/chris-langager/go-htmx-seed-repo/internal/app"
 	"github.com/chris-langager/go-htmx-seed-repo/internal/db"
+	"github.com/chris-langager/go-htmx-seed-repo/internal/todo"
 	"github.com/chris-langager/go-htmx-seed-repo/internal/user"
 )
 
-func main() {
+//TODO: make cfg package for env vars and defaults
 
+func main() {
 	postgresUrl := "postgres://postgres:passw0rd@localhost:5432/postgres?sslmode=disable"
 	if os.Getenv("DATABASE_URL") != "" {
 		postgresUrl = os.Getenv("DATABASE_URL")
 	}
-
-	fmt.Printf("postgresUrl='%s'\n", postgresUrl)
 
 	dbConnection, err := sql.Open("postgres", postgresUrl)
 	if err != nil {
@@ -26,7 +26,10 @@ func main() {
 	}
 	db.MustMigrate(dbConnection)
 
-	app := app.NewServer(user.NewService(dbConnection))
+	userService := user.NewService(dbConnection)
+	todoService := todo.NewService((dbConnection))
+
+	app := app.NewServer(userService, todoService)
 
 	port := os.Getenv("PORT")
 	if port == "" {

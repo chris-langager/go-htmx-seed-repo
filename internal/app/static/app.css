@@ -10,6 +10,16 @@ body {
   font-family: Geist, Arial;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
 h2 {
   font-size: 1.25rem;
   line-height: 1.25rem;
@@ -91,6 +101,10 @@ nav .login-nav {
 .user-form input[type="submit"]:hover {
   background-color: #45a049;
 }
+
+/*
+
+/*TODO
 
 /*
 Utility Classes
