@@ -1,0 +1,12 @@
+[] swap out email for username
+[] anonymous login to persist todos and display default todos to new users
+[] create todo form
+[] persist todos to db
+[] JS to turn dates into user local time
+[] delete todo
+[] All/Uncompleted/Completed filters
+[] validation errors, structured error rework
+[] cfg package
+
+
+[] JSON API?
