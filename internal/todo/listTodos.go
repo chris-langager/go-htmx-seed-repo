@@ -15,5 +15,6 @@ type Todo struct {
 func (o *Service) ListTodos(ctx context.Context) ([]Todo, error) {
 	return []Todo{
 		{"123", time.Now(), "this is totally a real todo and this is what it looks like when it gets longer", false},
+		{"123", time.Now(), "this is totally a real todo and this is what it looks like when it gets longer", true},
 	}, nil
 }

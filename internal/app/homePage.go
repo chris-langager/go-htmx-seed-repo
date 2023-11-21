@@ -21,7 +21,7 @@ func (o *Server) homePage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	renderPage(w, homePageTemplate, HomePageProperties{
+	sendHtml(w, homePageTemplate, HomePageProperties{
 		ApplicationProperties: ApplicationProperties{
 			Title: "Home",
 			User:  getUser(r.Context()),

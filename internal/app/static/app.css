@@ -72,7 +72,90 @@ nav .login-nav {
 }
 
 /* Login form */
-.user-form input {
+
+/*
+TODOS
+*/
+
+.todos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/*
+TODO
+*/
+.todo {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  border: 1px solid gray;
+  border-radius: 4px;
+
+  padding: 0.2rem;
+}
+
+.todo.completed {
+  opacity: 0.7;
+}
+
+.todo .top-row {
+  position: relative;
+  width: 100%;
+}
+
+.todo .date-created {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  color: gray;
+}
+
+.todo .text-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: 01rem 0.5rem;
+
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+}
+
+.todo input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 1rem;
+}
+
+.todo input[type="checkbox"]:checked + .text {
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+/*
+TODO FORM
+*/
+
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*
+common
+*/
+
+input {
   box-sizing: border-box;
   width: 100%;
   padding: 0.5rem;
@@ -82,7 +165,7 @@ nav .login-nav {
   line-height: 1.2rem;
 }
 
-.user-form button {
+button {
   box-sizing: border-box;
   width: 100%;
   padding: 0.5rem;
@@ -93,18 +176,9 @@ nav .login-nav {
   line-height: 1.2rem;
 }
 
-.user-form .error {
+form .error {
   color: red;
 }
-
-/* Add a background color to the submit button on mouse-over */
-.user-form input[type="submit"]:hover {
-  background-color: #45a049;
-}
-
-/*
-
-/*TODO
 
 /*
 Utility Classes

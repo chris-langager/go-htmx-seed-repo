@@ -20,7 +20,7 @@ func (o *Server) loginPage(w http.ResponseWriter, r *http.Request) {
 
 	properties := newLoginPageProperties()
 
-	renderPage(w, loginPageTemplate, properties)
+	sendHtml(w, loginPageTemplate, properties)
 }
 
 func (o *Server) login(w http.ResponseWriter, r *http.Request) {
@@ -40,7 +40,7 @@ func (o *Server) login(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if len(properties.Errors) > 0 {
-		renderPage(w, loginPageTemplate, properties)
+		sendHtml(w, loginPageTemplate, properties)
 		return
 	}
 
@@ -52,7 +52,7 @@ func (o *Server) login(w http.ResponseWriter, r *http.Request) {
 
 	if user == nil {
 		properties.Errors["Password"] = "incorrect password"
-		renderPage(w, loginPageTemplate, properties)
+		sendHtml(w, loginPageTemplate, properties)
 		return
 	}
 

@@ -1,3 +1,12 @@
 {{ define "content" }}
-<h1>Welcome to the home page!</h1>
-{{range .Todos}} {{ template "todo" .}} {{end}} {{ end }}
+
+<h2>Todos</h2>
+<div id="todos" class="todos">
+  {{range .Todos}} {{ template "todo" .}} {{end}}
+</div>
+<form class="todo-form" hx-post="/todo" hx-target="#todos" hx-swap="beforeend">
+  <input type="text" placeholder="New todo..." />
+  <button type="submit">Add Todo</button>
+</form>
+
+{{ end }}

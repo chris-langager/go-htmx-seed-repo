@@ -40,9 +40,12 @@ func NewServer(userService *user.Service, todoService *todo.Service) *Server {
 
 	o.router.Get("/register", o.registerPage)
 	o.router.Post("/register", o.register)
+
 	o.router.Get("/login", o.loginPage)
 	o.router.Post("/login", o.login)
 	o.router.Get("/logout", o.logout)
+
+	o.router.Post("/todo", o.createTodo)
 
 	o.router.Get("/", o.homePage)
 
@@ -56,7 +59,7 @@ type ApplicationProperties struct {
 	User  *user.User
 }
 
-func renderPage(w http.ResponseWriter, template *template.Template, data any) {
+func sendHtml(w http.ResponseWriter, template *template.Template, data any) {
 	err := template.Execute(w, data)
 	if err != nil {
 		w.WriteHeader(500)

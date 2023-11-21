@@ -22,7 +22,7 @@ func (o *Server) registerPage(w http.ResponseWriter, r *http.Request) {
 
 	properties := newRegisterPageProperties()
 
-	renderPage(w, registerPageTemplate, properties)
+	sendHtml(w, registerPageTemplate, properties)
 }
 
 func (o *Server) register(w http.ResponseWriter, r *http.Request) {
@@ -42,7 +42,7 @@ func (o *Server) register(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if len(properties.Errors) > 0 {
-		renderPage(w, registerPageTemplate, properties)
+		sendHtml(w, registerPageTemplate, properties)
 		return
 	}
 
